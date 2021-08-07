@@ -20,4 +20,5 @@ jobs:
     needs: [ubuntu,macos,windows]
     runs-on: macos-latest
     steps:
+    - name: depends after run
     - run: date
