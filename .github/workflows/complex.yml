@@ -43,12 +43,17 @@ jobs:
         date
         ls
         java -version
-  myupload:
+  myUpload:
     needs: [depends]
     runs-on: windows-latest
     steps:
-    - name: first checkout
-      run: echo "Hello dear friend"
+    - name: Check out the code
+      uses: actions/checkout@v2
+    - name: Upload the artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.ARTIFACT_NAME }}
+        path: .
       
        
    
