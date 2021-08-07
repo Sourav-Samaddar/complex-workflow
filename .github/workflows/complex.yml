@@ -23,5 +23,5 @@ jobs:
     - name: depends after run
       run: |
         date
-        ls -ltr
+        ls
         java -version
