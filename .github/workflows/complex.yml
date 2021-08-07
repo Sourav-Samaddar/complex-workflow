@@ -43,3 +43,12 @@ jobs:
         date
         ls
         java -version
+  myupload:
+    needs: [depends]
+    runs-on: windows-latest
+    steps:
+    - name: first checkout
+      run: echo "Hello dear friend"
+      
+       
+   
