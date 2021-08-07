@@ -1,4 +1,6 @@
 name: Complex
+env:
+  WORKSPACE_ENVIRONMENT_VARIABLE: 'custom workspace environment variable'
 on: push
 jobs:
   ubuntu: 
@@ -9,9 +11,22 @@ jobs:
         echo The UBUNTU Date is
         date
   windows:
+    env:
+      JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for windows'
     runs-on: windows-latest
     steps:
-    - run: date
+    - name: Print custom environment variables from windows-latest
+      run: |
+        date
+        echo "Accessing environment variables in run command"
+        echo "$Env:WORKSPACE_ENVIRONMENT_VARIABLE"
+        echo "$Env:JOB_ENVIRONMENT_VARIABLE"
+        echo "$Env:STEP_ENVIRONMENT_VARIABLE"
+        echo "------------------------------------------------------"
+        echo "Accessing environment variables using env context"
+        echo "${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
+        echo "${{ env.JOB_ENVIRONMENT_VARIABLE }}"
+        echo "${{ env.STEP_ENVIRONMENT_VARIABLE }} Not defined"
   macos:
     runs-on: macos-latest
     steps:
