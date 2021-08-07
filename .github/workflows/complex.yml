@@ -1,6 +1,7 @@
 name: Complex
 env:
   WORKSPACE_ENVIRONMENT_VARIABLE: 'custom workspace environment variable'
+  ARTIFACT_NAME: 'myartifact'
 on: push
 jobs:
   ubuntu: 
@@ -21,11 +22,13 @@ jobs:
         echo "Accessing environment variables in run command"
         echo "$Env:WORKSPACE_ENVIRONMENT_VARIABLE"
         echo "$Env:JOB_ENVIRONMENT_VARIABLE"
+        echo "$Env:ARTIFACT_NAME"
         echo "$Env:STEP_ENVIRONMENT_VARIABLE"
         echo "------------------------------------------------------"
         echo "Accessing environment variables using env context"
         echo "${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
         echo "${{ env.JOB_ENVIRONMENT_VARIABLE }}"
+        echo "${{ env.ARTIFACT_NAME }}"
         echo "${{ env.STEP_ENVIRONMENT_VARIABLE }} Not defined"
   macos:
     runs-on: macos-latest
