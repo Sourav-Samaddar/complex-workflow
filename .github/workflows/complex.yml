@@ -21,4 +21,4 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: depends after run
-    - run: date
+      run: date
