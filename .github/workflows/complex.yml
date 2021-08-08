@@ -33,7 +33,9 @@ jobs:
   macos:
     runs-on: macos-latest
     steps:
-    - run: date
+    - run: |
+          date
+          python sourav.py
   depends:
     needs: [ubuntu,macos,windows]
     runs-on: macos-latest
