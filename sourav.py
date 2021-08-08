@@ -1,1 +1,1 @@
-print("HEllo Mr Sourav")
+print{"HEllo Mr Sourav"}
